@@ -5,7 +5,7 @@ FROM debian:${VERSION}
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt update && \
     apt -y install build-essential gcc-10 cmake \
-        gdb python3 
+        gdb python3 clang-format
 
 # build project
 ARG PROJECT=crucible
