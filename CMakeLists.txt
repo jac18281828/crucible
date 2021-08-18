@@ -17,6 +17,7 @@ add_executable(
   crucible_test
   test/crucible_test.cpp
 )
+
 target_include_directories(crucible_test PRIVATE include)
 target_link_libraries(
   crucible_test
