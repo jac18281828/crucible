@@ -1,1 +1,1 @@
-docker build . -t sdf:1 && docker run --rm -i -t sdf:1
+docker build . -t cru:1 && docker run --rm -i -t cru:1
