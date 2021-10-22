@@ -2,17 +2,12 @@ ARG VERSION=102221
 
 FROM jac18281828/cppdev:${VERSION} 
 
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt update && \
-    apt -y install build-essential cmake \
-        gdb python3 clang-format
-
 # build project
 ARG PROJECT=crucible
 WORKDIR /workspaces/${PROJECT}
 
 COPY test test/
-COPY include include/
+#COPY include include/
 COPY CMakeLists.txt .    
 
 ARG BUILD=build
