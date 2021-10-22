@@ -1,6 +1,6 @@
-ARG VERSION=stable-slim
+ARG VERSION=102221
 
-FROM debian:${VERSION} 
+FROM jac18281828/cppdev:${VERSION} 
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt update && \
