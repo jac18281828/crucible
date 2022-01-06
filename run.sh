@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION=$(date +%m%d%y)
+PROJECT=jac18281828/crucible
 
-docker build . -t crucible:${VERSION} && \
-	docker run --rm -i -t crucible:${VERSION}
+docker build . -t ${PROJECT}:${VERSION} && \
+	docker run --rm -i -t ${PROJECT}:${VERSION}

@@ -1,5 +1,4 @@
-ARG VERSION=111021
-
+ARG VERSION=010422
 FROM jac18281828/cppdev:${VERSION} 
 
 # build project
