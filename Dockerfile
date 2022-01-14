@@ -1,4 +1,4 @@
-ARG VERSION=010422
+ARG VERSION=latest
 FROM jac18281828/cppdev:${VERSION} 
 
 # build project
