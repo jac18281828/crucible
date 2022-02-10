@@ -7,7 +7,10 @@ WORKDIR /workspaces/${PROJECT}
 
 COPY test test/
 #COPY include include/
-COPY CMakeLists.txt .    
+COPY CMakeLists.txt .
+RUN chown -R jac.jac .
+
+USER jac
 
 ARG BUILD=build
 ARG TYPE=DEBUG
