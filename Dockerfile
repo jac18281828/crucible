@@ -1,17 +1,9 @@
-ARG VERSION=latest
-FROM jac18281828/cppdev:${VERSION} 
+FROM jac18281828/cppdev:latest
 
-# build project
 ARG PROJECT=crucible
-WORKDIR /workspaces/${PROJECT}
-
-COPY test test/
-#COPY include include/
-COPY CMakeLists.txt .
-RUN chown -R jac.jac .
-
 USER jac
-
+WORKDIR /workspaces/${PROJECT}
+COPY --chown=jac:jac . .
 ARG BUILD=build
 ARG TYPE=DEBUG
 

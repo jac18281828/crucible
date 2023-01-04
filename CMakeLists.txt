@@ -11,6 +11,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+add_executable(
+  main
+  src/main.cpp
+)
+
+target_include_directories(main PRIVATE include)
+
 enable_testing()
 
 add_executable(
@@ -24,6 +31,7 @@ target_link_libraries(
   gtest_main
   m
 )
+
 
 include(GoogleTest)
 gtest_discover_tests(crucible_test)
