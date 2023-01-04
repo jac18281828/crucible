@@ -7,12 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag crucible:$(date +%s)
+      run: |
+        echo "REPOSITORY_SHA=$( echo ${GITHUB_SHA} | cut -c 1-8 )" >> ${GITHUB_ENV}
+        docker build . --file Dockerfile --tag crucible:${{ env.REPOSITORY_SHA }}

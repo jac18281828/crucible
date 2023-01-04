@@ -1,9 +1,11 @@
 FROM jac18281828/cppdev:latest
 
 ARG PROJECT=crucible
-USER jac
+
 WORKDIR /workspaces/${PROJECT}
-COPY --chown=jac:jac . .
+COPY . .
+RUN chown -R jac.jac .
+USER jac
 ARG BUILD=build
 ARG TYPE=DEBUG
 
