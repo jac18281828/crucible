@@ -1,1 +1,6 @@
 build
+README.md
+build.sh
+.git
+.github
+.vscode
