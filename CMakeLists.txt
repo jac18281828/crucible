@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.18)
 project(${PROJECT_NAME} LANGUAGES CXX VERSION 1.0.0)
 
 add_compile_options(-std=c++20)
+add_compile_options(-Wall -pedantic -Wextra)
 
 include(FetchContent)
 FetchContent_Declare(
