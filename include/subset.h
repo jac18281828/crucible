@@ -10,16 +10,21 @@ namespace subset {
 using set_t = std::vector<int>;
 using set_size_t = set_t::size_type;
 using visitor_t = std::function<void(set_t const &)>;
-
-inline void all_sets(set_t const &set, visitor_t visitor,
-                     set_t subset = set_t()) {
-  for (auto begin = std::begin(set); begin != std::end(set); ++begin) {
-    auto working_copy = set_t(subset);
-    if (std::find(std::begin(working_copy), std::end(working_copy), *begin) ==
-        std::end(working_copy)) {
-      working_copy.push_back(*begin);
-      visitor(working_copy);
-      all_sets(set, visitor, working_copy);
+// 1 2 3
+// 1 2 3 12 13 23 123
+inline void all_sets(set_t const &set, visitor_t visitor, set_size_t index = 0,
+                     set_t init_set = set_t()) {
+  if (index < std::size(set)) {
+    auto begin = std::begin(set);
+    std::advance(begin, index);
+    for (; begin != std::end(set); ++begin) {
+      auto working_set = set_t(init_set);
+      if (std::find(std::begin(working_set), std::end(working_set), *begin) ==
+          std::end(working_set)) {
+        working_set.push_back(*begin);
+        visitor(working_set);
+        all_sets(set, visitor, index + 1, working_set);
+      }
     }
   }
 }
