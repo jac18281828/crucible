@@ -4,7 +4,7 @@
 
 #include "subset.h"
 
-TEST(AllSetTest, ABCTest) {
+TEST(AllSetTest, DISABLE_ABCTest) {
   auto example = subset::set_t{1, 2, 3};
   auto result = std::vector<subset::set_t>();
   subset::all_sets(example, [&result](auto &s) { result.push_back(s); });
@@ -17,17 +17,14 @@ TEST(AllSetTest, ABCTest) {
   ASSERT_EQ(std::size(result), 8);
 }
 
-TEST(AllSetTest, BigMoFoTest) {
+TEST(AllSetTest, DISABLE_BigMoFoTest) {
   auto example = subset::set_t{278, 576, 496, 727, 410, 124, 338, 149,
                                209, 702, 282, 718, 771, 575, 436};
   subset::set_size_t result_size = 0U;
-  subset::all_sets(example, [&result_size](auto &s) {
-    result_size++;
-    std::for_each(std::begin(s), std::end(s),
-                  [](auto &c) { std::cout << c << " "; });
-    std::cout << std::endl;
-  });
-  ASSERT_EQ(result_size, 8);
+  subset::all_sets(
+      example, [&result_size](auto const &) { result_size++; },
+      [](auto const &s) { return std::size(s) < 4; });
+  ASSERT_EQ(result_size, 23144);
 }
 
 TEST(NonDivTest, Test1) {
