@@ -42,7 +42,7 @@ inline bool sum_not_divisible(set_t const &set, const int k) {
     }
     // 2 numbers sum to k
     for (auto j = 0; j < k / 2; ++j) {
-      if (mod_val_map[j] + mod_val_map[k - j - 1] > 1) {
+      if (mod_val_map[j] > 1 && mod_val_map[k - j - 1] > 1) {
         return false;
       }
     }

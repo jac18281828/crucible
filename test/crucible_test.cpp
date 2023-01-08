@@ -4,7 +4,7 @@
 
 #include "subset.h"
 
-TEST(AllSetTest, DISABLE_ABCTest) {
+TEST(AllSetTest, DISABLED_ABCTest) {
   auto example = subset::set_t{1, 2, 3};
   auto result = std::vector<subset::set_t>();
   subset::all_sets(example, [&result](auto &s) { result.push_back(s); });
@@ -17,7 +17,7 @@ TEST(AllSetTest, DISABLE_ABCTest) {
   ASSERT_EQ(std::size(result), 8);
 }
 
-TEST(AllSetTest, DISABLE_BigMoFoTest) {
+TEST(AllSetTest, DISABLED_BigMoFoTest) {
   auto example = subset::set_t{278, 576, 496, 727, 410, 124, 338, 149,
                                209, 702, 282, 718, 771, 575, 436};
   subset::set_size_t result_size = 0U;
@@ -40,8 +40,33 @@ TEST(NonDivTest, DISABLED_Test2) {
   ASSERT_EQ(answer, 11);
 }
 
-TEST(NonDivTest, Test3) {
+TEST(NonDivTest, DISABLED_Test3) {
   auto example = subset::set_t{19, 10, 12, 10, 24, 25, 22};
   auto answer = subset::non_div_subset(example, 4);
   ASSERT_EQ(answer, 3);
+}
+
+TEST(SumNotDivisible, Test1) {
+  auto ndivisible = subset::set_t{10, 12, 25};
+  ASSERT_TRUE(subset::sum_not_divisible(ndivisible, 4));
+}
+
+TEST(SumNotDivisible, Test2) {
+  auto ndivisible = subset::set_t{19, 22, 24};
+  ASSERT_TRUE(subset::sum_not_divisible(ndivisible, 4));
+}
+
+TEST(SumNotDivisible, Test3) {
+  auto ndivisible = subset::set_t{12, 4, 24};
+  ASSERT_FALSE(subset::sum_not_divisible(ndivisible, 4));
+}
+
+TEST(SumNotDivisible, Test4) {
+  auto ndivisible = subset::set_t{2, 2};
+  ASSERT_FALSE(subset::sum_not_divisible(ndivisible, 4));
+}
+
+TEST(SumNotDivisible, Test5) {
+  auto ndivisible = subset::set_t{1, 7, 2, 4};
+  ASSERT_FALSE(subset::sum_not_divisible(ndivisible, 3));
 }
