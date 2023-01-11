@@ -8,7 +8,7 @@ add_compile_options(-Wall -pedantic -Wextra)
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+  URL https://github.com/google/googletest/archive/58d77fa8070e8cec2dc1ed015d66b454c8d78850.zip
 )
 FetchContent_MakeAvailable(googletest)
 
