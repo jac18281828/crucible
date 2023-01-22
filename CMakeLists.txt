@@ -12,9 +12,11 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+set(SRC src/main.cpp)
+
 add_executable(
   main
-  src/main.cpp
+  ${SRC}
 )
 
 target_include_directories(main PRIVATE include)
