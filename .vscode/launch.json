@@ -19,5 +19,21 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "(gdb) Launch main",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/workspaces/crucible/build/main",
+            "cwd": "/workspaces/crucible",
+            "MIMode": "gdb",
+            "preLaunchTask": "cmake",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]}
