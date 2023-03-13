@@ -14,7 +14,10 @@
             "command": "cmake --build build --verbose --config DEBUG",
             "dependsOn": "cmake makefiles",
             "problemMatcher": [],
-            "group": "build"
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "ctest",
