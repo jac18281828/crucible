@@ -1,21 +1,19 @@
 name: Docker Image CI
-
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Generate repository sha
-      run: |
-        echo "REPOSITORY_PATH=$( echo ${GITHUB_REPOSITORY} | tr '[:upper:]' '[:lower:]' )" >> ${GITHUB_ENV}
-        echo "REPOSITORY_SHA=$( echo ${GITHUB_SHA} | cut -c 1-8 )" >> ${GITHUB_ENV}
-    - name: Build the Docker image
-      run: |
-        echo "REPOSITORY_SHA=$( echo ${GITHUB_SHA} | cut -c 1-8 )" >> ${GITHUB_ENV}
-        docker build . --file Dockerfile --tag ${{ env.REPOSITORY_PATH }}:${{ env.REPOSITORY_SHA }}
+      - uses: actions/checkout@v2
+      - name: Generate repository sha
+        run: |
+          echo "REPOSITORY_PATH=$( echo ${GITHUB_REPOSITORY} | tr '[:upper:]' '[:lower:]' )" >> ${GITHUB_ENV}
+          echo "REPOSITORY_SHA=$( echo ${GITHUB_SHA} | cut -c 1-8 )" >> ${GITHUB_ENV}
+      - name: Build the Docker image
+        run: |
+          echo "REPOSITORY_SHA=$( echo ${GITHUB_SHA} | cut -c 1-8 )" >> ${GITHUB_ENV}
+          docker build . --file Dockerfile --tag ${{ env.REPOSITORY_PATH }}:${{ env.REPOSITORY_SHA }}
