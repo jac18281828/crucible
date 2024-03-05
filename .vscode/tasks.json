@@ -4,7 +4,7 @@
         {
             "label": "cmake makefiles",
             "type": "shell",
-            "command": "cmake -H. -Bbuild -DPROJECT_NAME=list -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_VERBOSE_MAKEFILE=on -Wno-dev '-GUnix Makefiles'",
+            "command": "cmake -H. -Bbuild -DPROJECT_NAME=crucible -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_VERBOSE_MAKEFILE=on -Wno-dev '-GUnix Makefiles'",
             "problemMatcher": [],
             "group": "build"
         },
