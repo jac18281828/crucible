@@ -7,8 +7,7 @@ WORKDIR /workspaces/${PROJECT}
 COPY --chown=cpp:cpp . .
 USER cpp
 
-ENV PATH=${PATH}:/usr/local/go/bin
-RUN yamlfmt -lint .github/workflows/*.yml
+ENV PATH=${PATH}:/go/bin
 
 ARG BUILD=build
 ARG TYPE=DEBUG
