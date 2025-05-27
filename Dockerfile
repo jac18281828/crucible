@@ -3,7 +3,6 @@ FROM jac18281828/cpp:latest
 ARG PROJECT=crucible
 WORKDIR /workspaces/${PROJECT}
 
-
 COPY --chown=cpp:cpp . .
 USER cpp
 
